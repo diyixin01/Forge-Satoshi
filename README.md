@@ -34,58 +34,27 @@ s2 = k-1;
 
 
 
-def k_Leaking(r,n,k,s,m):
-    r_reverse=Gcd(r,n)
-    e=hash(m)
-    d=r_reverse * (k*s-e)%n
-    return d
-    
-def k_Reuse(r1,s1,m1,r2,s2,m2,n):
-    e1=hash(m1)
-    e2=hash(m2)
-    d=((s1 * e2 - s2 * e1) * Gcd((s2 * r1 - s1 * r1), n)) % n
-    return d
+![image](https://user-images.githubusercontent.com/75195549/181041462-0fd88217-6512-4153-b552-b6fd29fafd38.png)
 
 
 # 2 推导彼此的K
 
-def Use_the_Same_k(s1,m1,s2,m2,r,d1,d2,n):
-    e1=hash(m1)
-    e2=hash(m2)
-    d2_1 = ((s2 * e1 - s1 * e2 + s2 * r * d1) * Gcd(s1 * r, n)) % n
-    d1_1 = ((s1 * e2 - s2 * e1 + s1 * r * d2) * Gcd(s2 * r, n)) % n
-    if(d2==d2_1 and d1_1==d1):
-        print("Success...")
-        return 1
-    else:
-        print("Failure...")
-        return 0
+![image](https://user-images.githubusercontent.com/75195549/181041507-05497b69-cff9-477b-b6a0-bae6828a9989.png)
 
 # 3 𝑟, 𝑠 和𝑟,−𝑠 都是有效的签名
-
-
-def Pretend(r, s, n, G, P):
-    u = random.randrange(1, n - 1)
-    v = random.randrange(1, n - 1)
-    r1 = Add(Multiply(u, G), Multiply(v, P))[0]
-    e1 = (r1 * u * Gcd(v, n)) % n
-    s1 = (r1 * Gcd(v, n)) % n
-    Verify_without_m(e1, n, G, r1, s1, P)
-
-
 
 # 4 因为如果验证没有检查m，就可以伪造签名
 
 
 
-def Pretend(r, s, n, G, P):
-    u = random.randrange(1, n - 1)
-    v = random.randrange(1, n - 1)
-    r1 = Add(Multiply(u, G), Multiply(v, P))[0]
-    e1 = (r1 * u * Gcd(v, n)) % n
-    s1 = (r1 * Gcd(v, n)) % n
-    Verify_without_m(e1, n, G, r1, s1, P)
-    
+
+![image](https://user-images.githubusercontent.com/75195549/181041552-ab52ab1a-159c-4206-8396-77f9850c1d19.png)
+
+
+# 相同的𝑑 和𝑘 用于ECDSA和Schnorr签名，导致𝑑的泄露
+
+![image](https://user-images.githubusercontent.com/75195549/181041887-824d860d-c639-4b93-83db-8d1a42e29e2b.png)
+
     
     
 
