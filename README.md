@@ -51,7 +51,7 @@ s2 = k-1;
 ![image](https://user-images.githubusercontent.com/75195549/181041552-ab52ab1a-159c-4206-8396-77f9850c1d19.png)
 
 
-# 相同的𝑑 和𝑘 用于ECDSA和Schnorr签名，导致𝑑的泄露
+# 5相同的𝑑 和𝑘 用于ECDSA和Schnorr签名，导致𝑑的泄露
 
 ![image](https://user-images.githubusercontent.com/75195549/181041887-824d860d-c639-4b93-83db-8d1a42e29e2b.png)
 
